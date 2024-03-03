@@ -95,10 +95,7 @@ background-repeat: no-repeat;
                                     <label :for="'skill_' + index">{{ skill.name }}</label>
                                 </div>
                             </div>
-                            <progress v-if="form.progress" :value="form.progress.percentage" max="100">
-  {{ form.progress.percentage }}%
-</progress>
-                            <div class="mt-6 flex items-center justify-end gap-x-2">
+                     <div class="mt-6 flex items-center justify-end gap-x-2">
                                 <button :disabled="isSubmitting" class="inline-flex w-full items-center justify-center rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:ring  bg-[#038a2c] hover:ring-[#038a2c] h-10 px-4 py-2 duration-200">
                                     <span v-if="isSubmitting" class="loader"></span>
                                     <span>Submit</span>
@@ -182,6 +179,9 @@ export default {
                 preserveScroll: true,
                 onSuccess() {
                     this.form.reset();
+                    this.isSubmitting = false;
+                },
+                onFinish() {
                     this.isSubmitting = false;
                 }
             });

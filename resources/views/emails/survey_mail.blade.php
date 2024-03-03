@@ -25,7 +25,7 @@
         <p style="display: flex; margin: 20px 0;">
             <a style="display: flex; padding-left: 20px; color: #038a2c;" href="https://api.whatsapp.com/send?phone=07030068148">
                  
-             <span style="width: 30px; margin-right: 5px;">{{ asset('/storage/img/logo-black.png') }}</span>
+             <span style="width: 30px; margin-right: 5px;"><img src="{{ asset('/storage/img/logo-black.png') }}" alt=""></span>
                  Send message on WhatsApp
              </a>
          </p>
@@ -33,7 +33,7 @@
         <p style="margin: 20px 0;">Happy learning! 🚀</p>
 
     
-        <a href="http://learncreategrow.com.ng" style="margin: 20px 0; width: 80px;"><em> {{ asset('/storage/img/logo-black.png') }} <!-- Add the path to your logo file --></em></a>
+        <a href="http://learncreategrow.com.ng" style="margin: 20px 0; width: 80px;"><em> <img src="{{ asset('/storage/img/logo-black.png') }}" alt=""> <!-- Add the path to your logo file --></em></a>
     </div>
 </body>
 </html>
