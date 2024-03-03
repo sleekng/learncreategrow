@@ -177,6 +177,10 @@ export default {
             this.isSubmitting = true;
             await this.form.post(route('register'), {
                 preserveScroll: true,
+                onFinish() {
+                    this.form.reset();
+                    this.isSubmitting = false;
+                },
                 onSuccess() {
                     this.form.reset();
                     this.isSubmitting = false;
