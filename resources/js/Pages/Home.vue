@@ -4,7 +4,7 @@
 </div>
 <div v-if="$page.props.flash.message" class="animate-fade  animate-duration-[2000ms] animate-ease-linear fixed flex  px-4 justify-center items-center top-0 left-0 w-screen h-screen z-50">
     <div class="md:mx-5 text-center max-w-xl p-10 border relative dark:border-b-white/50 dark:border-t-white/50 border-b-white/20 sm:border-t-white/20 shadow-[20px_0_20px_20px] shadow-slate-500/10 dark:shadow-white/20 rounded-lg border-white/20 border-l-white/20 border-r-white/20 sm:shadow-sm lg:rounded-xl lg:shadow-none">
-        <i @click="$page.props.flash.message = null" class="fa-sharp cursor-pointer fa-thin fa-xmark text-white absolute right-4 top-4"></i>
+        <i @click="closeModal" class="fa-sharp cursor-pointer fa-thin fa-xmark text-white absolute right-4 top-4"></i>
         <p class=" text-green-600 text-4xl font-bold animate-jump animate-infinite animate-duration-[2000ms] animate-ease-linear">Congratulations!</p>
         <div class=" text-white mt-4">
             We're excited to embark on this learning journey with you! Stay tuned for updates and personalized recommendations based on your survey responses
@@ -178,24 +178,22 @@ export default {
             await this.form.post(route('register'), {
                 preserveScroll: true,
 
-                onSuccess() {
-                    this.form.reset('name', 'skills', 'email', 'phone_number');
-                    this.form.name = null;
-                    this.form.skills = [];
-                    this.form.phone_number = null;
-                    this.form.email = null;
-                    this.isSubmitting = false;
-                },
+                onSuccess: () => {
+                        // Code to execute on successful form submission
+                        this.isSubmitting = false;
+                        this.form.reset();
+                    },
                 onError: (errors) => {
                     this.isSubmitting = false;
                     // Code to handle form submission errors
                 },
             });
         },
-
+        
         closeModal() {
-            this.show = false;
-            window.location.reload(true);
+            this.$page.props.flash.message = null
+            this.isSubmitting = false;
+         
         },
 
     

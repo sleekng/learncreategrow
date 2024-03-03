@@ -54,8 +54,8 @@ class RegisteredUserController extends Controller
         ]);
         $user->skills()->attach($request->skills);
 
-        Mail::to($user->email)->send(new surveySubmitted($user));
-
+ /*        Mail::to($user->email)->send(new surveySubmitted($user));
+ */
         return redirect()->back()->with('message', 'Thank you for your time! ');
     }
 }
