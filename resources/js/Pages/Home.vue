@@ -181,9 +181,10 @@ export default {
                     this.form.reset();
                     this.isSubmitting = false;
                 },
-                onFinish() {
+                onError: (errors) => {
                     this.isSubmitting = false;
-                }
+                    // Code to handle form submission errors
+                },
             });
         },
 
