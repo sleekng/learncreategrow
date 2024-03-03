@@ -95,7 +95,7 @@ background-repeat: no-repeat;
                                     <label :for="'skill_' + index">{{ skill.name }}</label>
                                 </div>
                             </div>
-                     <div class="mt-6 flex items-center justify-end gap-x-2">
+                            <div class="mt-6 flex items-center justify-end gap-x-2">
                                 <button :disabled="isSubmitting" class="inline-flex w-full items-center justify-center rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:ring  bg-[#038a2c] hover:ring-[#038a2c] h-10 px-4 py-2 duration-200">
                                     <span v-if="isSubmitting" class="loader"></span>
                                     <span>Submit</span>
@@ -111,9 +111,9 @@ background-repeat: no-repeat;
         </div>
         <div style=" display: flex; justify-content: center;">
             <p style="display: flex; margin: 20px 0;">
-               <a style="display: flex; color: #038a2c;" href="https://api.whatsapp.com/send?phone=07030068148">
-                    
-                <img style="width: 30px; margin-right: 5px;" src="storage/img/whatsapp.png" alt="">
+                <a style="display: flex; color: #038a2c;" href="https://api.whatsapp.com/send?phone=07030068148">
+
+                    <img style="width: 30px; margin-right: 5px;" src="storage/img/whatsapp.png" alt="">
                     Send message on WhatsApp
                 </a>
             </p>
@@ -177,9 +177,13 @@ export default {
             this.isSubmitting = true;
             await this.form.post(route('register'), {
                 preserveScroll: true,
-             
+
                 onSuccess() {
-                    this.form.reset('name', 'skills','email','phone_number');
+                    this.form.reset('name', 'skills', 'email', 'phone_number');
+                    this.form.name = null;
+                    this.form.skills = [];
+                    this.form.phone_number = null;
+                    this.form.email = null;
                     this.isSubmitting = false;
                 },
                 onError: (errors) => {
@@ -190,8 +194,12 @@ export default {
         },
 
         closeModal() {
-            this.form.reset('name', 'skills','email','phone_number');
             this.show = false;
+            this.form.name = null;
+            this.form.skills = [];
+            this.form.phone_number = null;
+            this.form.email = null;
+            this.isSubmitting = false;
 
         },
 
