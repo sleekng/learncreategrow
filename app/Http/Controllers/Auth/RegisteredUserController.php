@@ -58,4 +58,7 @@ class RegisteredUserController extends Controller
  */
         return redirect()->back()->with('message', 'Thank you for your time! ');
     }
+
+
+    
 }

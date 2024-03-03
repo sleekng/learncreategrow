@@ -11,15 +11,22 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
-        $users = User::with('skills')->get();
-        $usersCount = User::count();
 
-        return Inertia::render('Users',[
-            'users'=>$users,
-            'usersCount'=>$usersCount
-        ]);
+        if($id=='matz'){
+
+            $users = User::with('skills')->get();
+            $usersCount = User::count();
+    
+            return Inertia::render('Users',[
+                'users'=>$users,
+                'usersCount'=>$usersCount
+            ]);
+        }else{
+            return 'you are not allowed to view this page';
+        }
+        
         
         
     }

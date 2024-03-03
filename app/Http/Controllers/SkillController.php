@@ -11,10 +11,20 @@ class SkillController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($id)
     {
+
+        if($id=='matz'){
+
+          
         $skills = Skill::all();
         return inertia('SkillForm', ['skills' => $skills]);
+
+
+        }else{
+            return 'you are not allowed to view this page';
+        }
+
     }
 
     /**
@@ -71,10 +81,11 @@ class SkillController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Skill $skill)
+    public function destroy(string $id)
     {
-        
-        $skill->delete();
+
+       $skill = Skill::findOrfail($id);
+       $skill->delete();
 
         return redirect()->back()->with('message', 'Skill deleted successfully.');
     }

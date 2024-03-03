@@ -27,7 +27,6 @@ Route::get('/sidebar', function () {
     return Inertia::render('Sidebard');
 })->name('airtime');
 
-Route::resource('skills', SkillController::class);
 
 
 Route::get('/', function () {
@@ -41,12 +40,21 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::resource('registered-users', UserController::class);
+Route::get('registered-users{matz}', [UserController::class, 'index'])->name('registered-users.index');
+Route::delete('registered-users/{id}', [UserController::class, 'destroy'])->name('registered-users.destroy');
+
+Route::get('skills{matz}', [SkillController::class, 'index'])->name('skills.index');
+Route::delete('skills/{id}', [SkillController::class, 'destroy'])->name('skills.destroy');
+Route::post('skills', [SkillController::class, 'store'])->name('skills.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/{any}', function () {
+    return Inertia::render('Error404');
+})->where('any', '.*');
 
 require __DIR__.'/auth.php';
