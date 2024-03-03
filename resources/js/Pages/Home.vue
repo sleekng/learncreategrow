@@ -195,49 +195,10 @@ export default {
 
         closeModal() {
             this.show = false;
-            this.form.name = null;
-            this.form.skills = [];
-            this.form.phone_number = null;
-            this.form.email = null;
-            this.isSubmitting = false;
-
+            window.location.reload(true);
         },
 
-        openModal(option) {
-            if (option == "login") {
-                this.show = true;
-                this.forgetPasswordSection = false;
-                this.registeerSection = false;
-                this.loginSection = true;
-            } else if (option == "register") {
-                this.show = true;
-                this.forgetPasswordSection = false;
-                this.loginSection = false;
-                this.registeerSection = true;
-            } else if (option == "forget-pass") {
-                this.show = true;
-                this.loginSection = false;
-                this.registeerSection = false;
-                this.forgetPasswordSection = true;
-            }
-        },
-
-        showPassword(type) {
-            if (type == "login-password") {
-                this.LoginInputType =
-                    this.LoginInputType == "password" ? "text" : "password";
-            }
-            if (type == "password") {
-                this.inputType =
-                    this.inputType == "password" ? "text" : "password";
-            }
-            if (type == "confirm-password") {
-                this.inputConfirmPasswordType =
-                    this.inputConfirmPasswordType == "password" ?
-                    "text" :
-                    "password";
-            }
-        },
+    
     },
 }
 </script>
