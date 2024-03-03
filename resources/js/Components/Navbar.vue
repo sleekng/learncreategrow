@@ -1,5 +1,12 @@
 <template>
-    <div class="w-full fixed top-0 bg-primarycolor left-0  z-30 ">
+    <div class="w-full fixed top-0 bg-primarycolor left-0 bg-black  z-30 "   style="
+background: rgb(0,0,0);
+background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.6)),url('storage/img/bg-body.jpg'); 
+background-repeat: no-repeat;
+ background-size: cover;
+
+">
+
         <div
             class="container mx-auto px-4 flex justify-between items-center h-[80px] md:h-[100px]"
         >
@@ -17,7 +24,9 @@
             </div>
            
         </div>
+        <div class="relative  -mb-px h-px w-full bg-gradient-to-r from-transparent via-[#f7c11e] to-transparent" bis_skin_checked="1"></div>
     </div>
+    
 </template>
 
 <script>

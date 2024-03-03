@@ -25,7 +25,7 @@
         <p style="display: flex; margin: 20px 0;">
             <a style="display: flex; padding-left: 20px; color: #038a2c;" href="https://api.whatsapp.com/send?phone=07030068148">
                  
-             <span style="width: 30px; margin-right: 5px;"><img src="{{ asset('/storage/img/logo-black.png') }}" alt=""></span>
+             <span style="width: 30px; margin-right: 5px;"><img src="{{ asset('/storage/img/whatsapp.png') }}" alt=""></span>
                  Send message on WhatsApp
              </a>
          </p>
