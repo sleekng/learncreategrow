@@ -33,7 +33,7 @@ background-repeat: no-repeat;
                     <p class="mt-4 animate-fade animate-duration-[3000ms] animate-delay-[400ms]">We would like to know your interests in various digital skills to better tailor our offerings.</p>
                 </div>
             </div>
-            <div class="relative w-full md:col-span-6 mb-10  flex md:min-h-screen flex-col items-center  justify-center sm:pt-0  animate-flip-up animate-duration-[3000ms] ">
+            <div class="relative w-full md:col-span-6 mb-10  flex md:min-h-screen flex-col items-center  justify-center sm:pt-0 animate-shake animate-duration-[3000ms] ">
 
                 <div class="md:mx-5 border dark:border-b-white/50 dark:border-t-white/50 border-b-white/20 sm:border-t-white/20 shadow-[20px_0_20px_20px] shadow-slate-500/10 dark:shadow-white/20 rounded-lg border-white/20 border-l-white/20 border-r-white/20 sm:shadow-sm lg:rounded-xl lg:shadow-none">
                     <div class="relative  -mb-px h-px w-full bg-gradient-to-r from-transparent via-[#f7c11e] to-transparent" bis_skin_checked="1"></div>
@@ -97,7 +97,10 @@ background-repeat: no-repeat;
                             </div>
 
                             <div class="mt-6 flex items-center justify-end gap-x-2">
-                                <button class="inline-flex w-full items-center justify-center rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:ring  bg-[#038a2c] hover:ring-[#038a2c] h-10 px-4 py-2 duration-200">Submit</button>
+                                <button :disabled="isSubmitting" class="inline-flex w-full items-center justify-center rounded-md text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:ring  bg-[#038a2c] hover:ring-[#038a2c] h-10 px-4 py-2 duration-200">
+                                    <span v-if="isSubmitting" class="loader"></span>
+                                    <span>Submit</span>
+                                </button>
 
                             </div>
                         </form>
@@ -105,6 +108,15 @@ background-repeat: no-repeat;
                 </div>
             </div>
 
+        </div>
+        <div style=" display: flex; justify-content: center;">
+            <p style="display: flex; margin: 20px 0;">
+               <a style="display: flex; color: #038a2c;" href="https://api.whatsapp.com/send?phone=07030068148">
+                    
+                <img style="width: 30px; margin-right: 5px;" src="storage/img/whatsapp.png" alt="">
+                    Send message on WhatsApp
+                </a>
+            </p>
         </div>
     </div>
 </div>
@@ -148,6 +160,7 @@ export default {
         return {
             showSideBar: false,
 
+            isSubmitting: false,
             form: useForm({
                 name: null,
                 email: null,
@@ -161,9 +174,13 @@ export default {
     methods: {
 
         async submitForm() {
+            this.isSubmitting = true;
             await this.form.post(route('register'), {
                 preserveScroll: true,
-                onSuccess: () => this.form.reset(),
+                onSuccess() {
+                    this.form.reset();
+                    this.isSubmitting = false;
+                }
             });
         },
 
