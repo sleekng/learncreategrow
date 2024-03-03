@@ -177,12 +177,9 @@ export default {
             this.isSubmitting = true;
             await this.form.post(route('register'), {
                 preserveScroll: true,
-                onFinish() {
-                    this.form.reset();
-                    this.isSubmitting = false;
-                },
+             
                 onSuccess() {
-                    this.form.reset();
+                    this.form.reset('name', 'skills','email','phone_number');
                     this.isSubmitting = false;
                 },
                 onError: (errors) => {
@@ -193,7 +190,7 @@ export default {
         },
 
         closeModal() {
-            this.form.reset();
+            this.form.reset('name', 'skills','email','phone_number');
             this.show = false;
 
         },
