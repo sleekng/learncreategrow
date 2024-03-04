@@ -23,7 +23,7 @@
     
         <p style="margin: 20px 0;">Thank you once again for being part of our community.</p>
         <p style="display: flex; margin: 20px 0;">
-            <a style="display: flex; padding-left: 20px; color: #038a2c;" href="https://api.whatsapp.com/send?phone=07030068148">
+            <a style="display: flex; padding-left: 20px; color: #038a2c;" href="https://api.whatsapp.com/send?phone=+2347030068148">
                  
              <span style="width: 30px; margin-right: 5px;"><img src="{{ asset('/storage/img/whatsapp.png') }}" alt=""></span>
                  Send message on WhatsApp
