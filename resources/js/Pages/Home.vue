@@ -111,7 +111,7 @@ background-repeat: no-repeat;
         </div>
         <div style=" display: flex; justify-content: center;">
             <p style="display: flex; margin: 20px 0;">
-                <a style="display: flex; color: #038a2c;" href="https://api.whatsapp.com/send?phone=07030068148">
+                <a style="display: flex; color: #038a2c;" href="https://api.whatsapp.com/send?phone=+2347030068148">
 
                     <img style="width: 30px; margin-right: 5px;" src="storage/img/whatsapp.png" alt="">
                     Send message on WhatsApp
