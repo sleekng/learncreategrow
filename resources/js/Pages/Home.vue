@@ -33,7 +33,7 @@ background-repeat: no-repeat;
                     <p class="mt-4 animate-fade animate-duration-[3000ms] animate-delay-[400ms]">We would like to know your interests in various digital skills to better tailor our offerings.</p>
                 </div>
             </div>
-            <div class="relative w-full md:col-span-6 mb-10 md:mt-20 flex md:min-h-screen flex-col items-center  justify-center sm:pt-0 animate-shake animate-duration-[3000ms] ">
+            <div class="relative w-full md:col-span-6 mb-10 md:mt-40 flex md:min-h-screen flex-col items-center  justify-center sm:pt-0 animate-shake animate-duration-[3000ms] ">
 
                 <div class="md:mx-5 border dark:border-b-white/50 dark:border-t-white/50 border-b-white/20 sm:border-t-white/20 shadow-[20px_0_20px_20px] shadow-slate-500/10 dark:shadow-white/20 rounded-lg border-white/20 border-l-white/20 border-r-white/20 sm:shadow-sm lg:rounded-xl lg:shadow-none">
                     <div class="relative  -mb-px h-px w-full bg-gradient-to-r from-transparent via-[#f7c11e] to-transparent" bis_skin_checked="1"></div>
