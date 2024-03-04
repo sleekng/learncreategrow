@@ -36,12 +36,13 @@ class RegisteredUserController extends Controller
 
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'phone_number' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users,email',
+            'phone_number' => 'required|string|max:255|unique:users,phone_number',
             'skills' => 'required|array'
         ],[
             'name.required'=>'Please kindly enter your name!',
             'email.required'=>'Please enter email so we can send you updates',
+            'email.unique'=>'My gee you don register before nau, relex...',
             'phone_number.required'=>'Please enter phone number so we can reach out to you',
             'skills.required'=>'Guy, please select 1 or more skills nau'
         ]);
@@ -54,7 +55,7 @@ class RegisteredUserController extends Controller
         ]);
         $user->skills()->attach($request->skills);
 
-        Mail::to($user->email)->send(new surveySubmitted($user));
+      Mail::to($user->email)->send(new surveySubmitted($user));
 
         return redirect()->back()->with('message', 'Thank you for your time! ');
     }
